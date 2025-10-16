@@ -1,0 +1,23 @@
+.services {
+    padding: $section-padding;
+
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+        align-items: center;
+    }
+
+    &__title {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: $secondary-color;
+        line-height: 1.3;
+    }
+
+    &__text {
+        font-size: 18px;
+        line-height: 1.8;
+        color: $text-color;
+    }
+}

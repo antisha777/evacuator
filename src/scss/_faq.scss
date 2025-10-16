@@ -1,0 +1,22 @@
+.faq {
+    padding: $section-padding;
+    background-color: $light-bg;
+    text-align: center;
+
+    &__title {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: $secondary-color;
+    }
+
+    &__subtitle {
+        font-size: 20px;
+        margin-bottom: 40px;
+        color: $text-color;
+    }
+
+    &__phone {
+        font-size: 24px;
+        padding: 15px 40px;
+    }
+}
