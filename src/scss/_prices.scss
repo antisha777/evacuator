@@ -2,11 +2,30 @@
     padding: $section-padding;
     background-color: $light-bg;
 
-    &__title {
-        text-align: center;
-        font-size: 36px;
+    &__header {
+        display: flex;
+        justify-content: flex-start; // меняем на flex-start
         margin-bottom: 50px;
+        
+        @include mobile {
+            justify-content: center;
+        }
+    }
+
+    &__title {
+        font-size: 36px;
         color: $secondary-color;
+        font-weight: 700;
+        text-align: left; // меняем на left
+        
+        @include mobile {
+            text-align: center;
+            font-size: 28px;
+        }
+    }
+
+    &__title-first-letter {
+        color: $primary-color;
     }
 
     &__grid {
@@ -18,20 +37,35 @@
 
 .price-card {
     background: $white;
-    padding: 40px 30px;
     border-radius: 10px;
-    text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
-
+    overflow: hidden;
+    
     &:hover {
         transform: translateY(-5px);
+    }
+
+    &__image {
+        height: 150px;
+        background-image: url('../images/diploma.webp'); // меняем на diploma.webp
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        // убираем фильтры прозрачности
+        position: relative;
+    }
+
+    &__content {
+        padding: 30px;
+        text-align: center;
     }
 
     &__title {
         font-size: 20px;
         margin-bottom: 20px;
         color: $secondary-color;
+        font-weight: 600;
     }
 
     &__price {

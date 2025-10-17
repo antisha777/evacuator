@@ -12,8 +12,12 @@ $main-font: 'Montserrat', 'Arial', sans-serif;
 
 // Breakpoints
 $mobile: 480px;
-$tablet: 768px;
+$tablet: 768px;    // 767px и меньше - мобильные
 $desktop: 1200px;
+
+// Дополнительные кастомные брейкпоинты
+$mobile-lg: 554px; // для faq-card изменения
+$mobile-sm: 433px; // для убирания отступов
 
 // Отступы
 $container-padding: 15px;

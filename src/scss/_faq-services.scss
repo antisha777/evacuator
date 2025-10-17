@@ -1,0 +1,241 @@
+.faq-services {
+    padding: 80px 0; // увеличиваем отступы
+    background-color: $white;
+    min-height: 60vh; // минимальная высота
+
+    &__content {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 60px;
+        align-items: start;
+
+        @include tablet {
+            grid-template-columns: 1fr 0.8fr;
+            gap: 40px;
+        }
+
+        @include mobile {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        // На мобильных меняем порядок - services-info идет первым, faq-card вторым
+        @include mobile {
+            order: 2;
+        }
+    }
+
+    &__visual {
+        height: 100%;
+        display: flex;
+        align-items: stretch;
+
+        @include mobile {
+            order: 1;
+        }
+    }
+
+    &__image-wrapper {
+        width: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        display: flex;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.02);
+        }
+    }
+}
+
+// Стили для FAQ карточки
+.faq-card {
+    background: $light-bg;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    &__header {
+        flex: 1;
+        margin-bottom: 0;
+    }
+
+    &__title {
+        font-size: 28px;
+        margin-bottom: 10px;
+        color: $secondary-color;
+        font-weight: 700;
+    }
+
+    &__subtitle {
+        font-size: 16px;
+        color: $text-color;
+        line-height: 1.6;
+        margin-bottom: 0;
+    }
+
+    &__contact {
+        flex-shrink: 0;
+        text-align: center;
+    }
+
+    &__phone {
+        font-size: 18px;
+        padding: 15px 30px;
+        white-space: nowrap;
+    }
+
+    // На 554px и меньше - кнопка уходит вниз
+    @media (max-width: 554px) {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        
+        &__header {
+            margin-bottom: 0;
+        }
+        
+        &__contact {
+            width: 100%;
+        }
+        
+        &__phone {
+            width: 100%;
+            font-size: 16px;
+            padding: 12px 20px;
+        }
+    }
+
+    // На 433px и меньше - убираем лишние отступы
+    @media (max-width: 433px) {
+        padding: 25px 15px;
+        gap: 15px;
+        
+        &__title {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+        
+        &__subtitle {
+            font-size: 14px;
+        }
+    }
+
+    // Планшетная версия (768px - 1200px)
+    @include tablet {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        
+        &__header {
+            margin-bottom: 0;
+        }
+        
+        &__contact {
+            width: 100%;
+        }
+        
+        &__phone {
+            width: 100%;
+        }
+    }
+
+    // Мобильная версия (767px и меньше)
+    @include mobile {
+        padding: 30px 25px;
+        
+        &__title {
+            font-size: 24px;
+        }
+        
+        &__subtitle {
+            font-size: 15px;
+        }
+    }
+}
+
+// Стили для Services информации
+.services-info {
+    // На мобильных services-info идет ПЕРВЫМ в левом блоке
+    @include mobile {
+        order: 1; // становится первым в faq-services__info
+    }
+
+    &__title {
+        font-size: 28px;
+        margin-bottom: 25px;
+        color: $secondary-color;
+        font-weight: 700;
+        line-height: 1.3;
+
+        @include mobile {
+            font-size: 24px;
+        }
+        
+        @media (max-width: 433px) {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__title-first-letter {
+        color: $primary-color;
+    }
+
+    &__text {
+        font-size: 16px;
+        line-height: 1.8;
+        color: $text-color;
+        margin-bottom: 0;
+        
+        @media (max-width: 433px) {
+            font-size: 14px;
+        }
+    }
+}
+
+// Дополнительные стили для мобильной версии
+@include mobile {
+    .faq-services {
+        &__content {
+            gap: 25px;
+        }
+        
+        &__info {
+            gap: 30px;
+            
+            // Явно задаем порядок внутри info блока
+            .services-info {
+                order: 1;
+            }
+            
+            .faq-card {
+                order: 2; // faq-card идет ПОСЛЕ services-info
+            }
+        }
+    }
+}

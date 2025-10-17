@@ -11,19 +11,19 @@ const rename = require('gulp-rename');
 const paths = {
   styles: {
     src: 'src/scss/**/*.scss',
-    dest: 'dist/css/'
+    dest: 'docs/css/'
   },
   scripts: {
     src: 'src/js/**/*.js',
-    dest: 'dist/js/'
+    dest: 'docs/js/'
   },
   html: {
     src: 'src/*.html',
-    dest: 'dist/' // БЫЛО: paths.dest - ЭТО ОШИБКА!
+    dest: 'docs/'
   },
   images: {
     src: 'src/images/**/*',
-    dest: 'dist/images/'
+    dest: 'docs/images/'
   }
 };
 
@@ -70,10 +70,12 @@ function images() {
 function serve() {
   browserSync.init({
     server: {
-      baseDir: './dist'
+      baseDir: './docs',
+      index: 'index.html' // явно указываем индексный файл
     },
     port: 3000,
-    open: true
+    open: true,
+    notify: false
   });
 
   gulp.watch(paths.styles.src, styles);
