@@ -1,0 +1,81 @@
+.cookies-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba($secondary-color, 0.95);
+    color: $white;
+    padding: 20px 0;
+    z-index: 10000;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    
+    &.active {
+        transform: translateY(0);
+    }
+
+    &__content {
+        @include container;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+
+        @include tablet {
+            flex-direction: column;
+            text-align: center;
+            gap: 15px;
+        }
+    }
+
+    &__text {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+        color: rgba($white, 0.9);
+        flex: 1;
+
+        @include mobile {
+            font-size: 13px;
+        }
+    }
+
+    &__link {
+        color: $primary-color;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: lighten($primary-color, 10%);
+            text-decoration: underline;
+        }
+    }
+
+    &__actions {
+        flex-shrink: 0;
+    }
+
+    &__button {
+        font-size: 14px;
+        padding: 10px 25px;
+        white-space: nowrap;
+
+        @include mobile {
+            width: 100%;
+            padding: 12px 25px;
+        }
+    }
+    
+    animation: slideUp 0.5s ease forwards;
+    
+    @keyframes slideUp {
+        from {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
