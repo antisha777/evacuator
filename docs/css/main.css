@@ -424,6 +424,94 @@ p, span, div, a, li {
     box-shadow: 0 0 0 0 rgba(255, 107, 0, 0);
   }
 }
+.animated-strip {
+  background-color: #ff6b00;
+  padding: 10px 0;
+  overflow: hidden;
+}
+.animated-strip .container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.animated-strip__track {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  overflow: hidden;
+}
+.animated-strip__content {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: moveStrip 15s linear infinite;
+  width: -moz-max-content;
+  width: max-content;
+}
+.animated-strip__content:nth-child(1) {
+  left: 0;
+}
+.animated-strip__content:nth-child(2) {
+  left: 100%;
+}
+.animated-strip__content:nth-child(3) {
+  left: 200%;
+}
+.animated-strip__item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.animated-strip__arrow {
+  width: 24px;
+  height: 24px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  filter: brightness(0) invert(1);
+}
+.animated-strip__arrow:nth-child(odd) {
+  opacity: 0.9;
+}
+.animated-strip__arrow:nth-child(even) {
+  opacity: 0.6;
+}
+
+@keyframes moveStrip {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .animated-strip .container {
+    max-width: 100%;
+  }
+  .animated-strip__arrow {
+    width: 22px;
+    height: 22px;
+  }
+}
+@media (max-width: 767px) {
+  .animated-strip {
+    padding: 8px 0;
+  }
+  .animated-strip__track {
+    height: 25px;
+  }
+  .animated-strip__arrow {
+    width: 20px;
+    height: 20px;
+  }
+  .animated-strip__content {
+    gap: 8px;
+    animation-duration: 12s;
+  }
+}
 .prices {
   padding: 60px 0;
   background-color: #f8f9fa;
