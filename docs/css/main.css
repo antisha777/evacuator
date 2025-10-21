@@ -353,7 +353,6 @@ p, span, div, a, li {
 }
 .hero__image-wrapper {
   width: 100%;
-  max-width: 500px;
   height: 300px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
@@ -428,11 +427,6 @@ p, span, div, a, li {
   background-color: #ff6b00;
   padding: 10px 0;
   overflow: hidden;
-}
-.animated-strip .container {
-  max-width: 1170px;
-  margin: 0 auto;
-  padding: 0 15px;
 }
 .animated-strip__track {
   position: relative;
